@@ -27,7 +27,6 @@ public class BaseClientDetailService implements ClientDetailsService {
                  if("client".equals(clientId)) {
                      logger.info(clientId);
                          client = new BaseClientDetails();
-                         client.setClientId(clientId);
                          client.setClientSecret(passwordEncoder.encode("123456"));
                          client.setAuthorizedGrantTypes(Arrays.asList("authorization_code",
                                          "client_credentials", "refresh_token", "password", "implicit"));

@@ -2,9 +2,10 @@ package com.springboot.mybatis.model;
 
 import com.springboot.security.model.Authority;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class UsersDomain {
+public class UsersDomain implements Serializable {
 
     private String email;
     private String password;

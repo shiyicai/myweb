@@ -1,4 +1,4 @@
-package com.springboot.config;
+package com.springboot.config.data;
 
 
 import org.apache.http.HttpHost;

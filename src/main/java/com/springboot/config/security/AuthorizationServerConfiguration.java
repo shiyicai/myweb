@@ -1,4 +1,4 @@
-package com.springboot.config;
+package com.springboot.config.security;
 
 import com.springboot.security.BaseClientDetailService;
 import org.springframework.beans.factory.annotation.Autowired;

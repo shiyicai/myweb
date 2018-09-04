@@ -1,4 +1,4 @@
-package com.springboot.config;
+package com.springboot.config.data;
 
 
 import com.alibaba.druid.pool.DruidDataSource;

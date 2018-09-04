@@ -1,4 +1,4 @@
-package com.springboot.config;
+package com.springboot.config.security;
 
 import com.springboot.security.BaseUserDetailsService;
 import org.springframework.context.annotation.Bean;
