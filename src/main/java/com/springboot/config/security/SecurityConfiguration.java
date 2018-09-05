@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -24,12 +25,22 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 //                .anyRequest()           // 任何请求,登录后可以访问
 //                .authenticated();
 
-        http.requestMatchers()
-                .anyRequest()
-                .and()
-                .authorizeRequests()
-                .antMatchers("/es/*").permitAll();
+//        http.requestMatchers()
+//                .anyRequest()
+//                .and()
+//                .authorizeRequests()
+//                .antMatchers("/es/*").permitAll();
+        super.configure(http);
 
+    }
+
+    /**
+     * 设置公共访问接口
+     * @param web
+     */
+    @Override
+    public void configure(WebSecurity web){
+        web.ignoring().antMatchers("/guests/**");
     }
 
     @Override

@@ -2,6 +2,8 @@ server:
   port: 8080
 
 spring:
+  application:
+    name: my-web-api
   datasource:
     name: qms
     type: com.alibaba.druid.pool.DruidDataSource

@@ -25,8 +25,8 @@ public class BaseClientDetailService implements ClientDetailsService {
         BaseClientDetails client = null;
                  //TODO:这里可以改为查询数据库
                  if("client".equals(clientId)) {
-                     logger.info(clientId);
                          client = new BaseClientDetails();
+                         client.setClientId(clientId);
                          client.setClientSecret(passwordEncoder.encode("123456"));
                          client.setAuthorizedGrantTypes(Arrays.asList("authorization_code",
                                          "client_credentials", "refresh_token", "password", "implicit"));

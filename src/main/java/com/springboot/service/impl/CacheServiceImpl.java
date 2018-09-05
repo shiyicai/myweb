@@ -3,15 +3,20 @@ package com.springboot.service.impl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 @Service
 @CacheConfig(cacheNames = "sys.cache.")
 public class CacheServiceImpl {
     Logger logger  = LoggerFactory.getLogger(getClass());
+    @Autowired
+    RedisTemplate redisTemplate;
 
     /**
      *
@@ -29,6 +34,18 @@ public class CacheServiceImpl {
     public void removeCache(String owner,String type){
         //remove the key in redis cache
     }
+
+
+    @Cacheable
+    public int times(String owner,String day,String type){
+        return 0;
+    }
+
+    @CachePut
+    public int times(String owner,String day,String type,int times){
+        return times;
+    }
+
 
 
 

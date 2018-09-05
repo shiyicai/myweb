@@ -29,12 +29,14 @@ public class RedisConfig extends CachingConfigurerSupport {
             public Object generate(Object target, java.lang.reflect.Method method, Object... params) {
                 StringBuffer sb = new StringBuffer();
                 sb.append(target.getClass().getName()).append(".");
-                sb.append(method.getName()).append("(");
+                sb.append(method.getName());
                 for(Object obj:params){
+                    if(obj.toString().equalsIgnoreCase("times")){//计数器参数不参与key生成
+                        break;
+                    }
                     sb.append(obj.toString()).append("&");
                 }
-                sb.append(")");
-                logger.debug("调用Redis生成key："+sb.toString());
+                logger.info("调用Redis生成key："+sb.toString());
                 return sb.toString();
             }
         };
