@@ -19,8 +19,8 @@
 
 
     <insert id="registUser" parameterType="com.springboot.mybatis.model.UsersDomain" keyProperty="email">
-        insert into users(EMAIL,PASSWORD,ENABLED,USER_NAME,AUTHORITY)
+        insert into users(EMAIL,PASSWORD,USER_NAME,AUTHORITY)
         values
-        (#{email},#{password},#{enabled},#{userName},#{authority})
+        (#{email},#{password},#{userName},#{authority})
     </insert>
 </mapper>

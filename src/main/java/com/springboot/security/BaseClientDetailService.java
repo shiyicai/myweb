@@ -23,7 +23,7 @@ public class BaseClientDetailService implements ClientDetailsService {
     @Override
     public ClientDetails loadClientByClientId(String clientId) throws ClientRegistrationException {
         BaseClientDetails client = null;
-                 //TODO:这里可以改为查询数据库
+                 //这里可以改为查询数据库,图方便代码写死
                  if("client".equals(clientId)) {
                          client = new BaseClientDetails();
                          client.setClientId(clientId);
@@ -33,8 +33,8 @@ public class BaseClientDetailService implements ClientDetailsService {
                          //不同的client可以通过 一个scope 对应 权限集
                          client.setScope(Arrays.asList("all", "select"));
                          client.setAuthorities(AuthorityUtils.createAuthorityList("admin"));
-                         client.setAccessTokenValiditySeconds((int)TimeUnit.DAYS.toSeconds(1)); //1天
-                         client.setRefreshTokenValiditySeconds((int)TimeUnit.DAYS.toSeconds(1)); //1天
+                         client.setAccessTokenValiditySeconds((int)TimeUnit.HOURS.toSeconds(2));//access_token life circle
+                         client.setRefreshTokenValiditySeconds((int)TimeUnit.HOURS.toSeconds(2));
                          Set<String> uris = new HashSet<>();
                          uris.add("http://localhost:8080/login");
                          client.setRegisteredRedirectUri(uris);
