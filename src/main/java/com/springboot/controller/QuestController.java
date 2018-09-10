@@ -83,6 +83,12 @@ public class QuestController {
         return cacheService.times(email,MyDateUtil.today("yyyy-MM-dd"),"times");
     }
 
+    @RequestMapping(method = RequestMethod.GET)
+    public String welcome(){
+        return "你好，这里是方方工作室，目前还在建设中，敬请期待！";
+    }
+
+
     private int incrementalTimes(String email,int currentTimes){
         String today = MyDateUtil.today("yyyy-MM-dd");
         currentTimes += 1;
